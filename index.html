@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempest Naomi</title>
+  <!-- Import Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="black" style="margin-bottom: 20px;">
+    <div class="nav-wrapper container">
+      <a href="https://onlyfans.com/tempestnaomi19/c11" class="brand-logo center">
+        <img src="onlyfanslogo.png" height="36px" alt="">
+      </a>
+    </div>
+  </nav>
+  
+  
+  
+  <div class="container">
+    <!-- Add a container to center the content -->
+    <div class="row App">
+      <div class="col s12 center-align">
+        <!-- Center-align the image -->
+        <img src="image.jpg" alt="Image" class="responsive-img" style="width: 30%; height: auto; border: 2px solid #999;">
+        <!-- Add inline style to set width, height, and border -->
+      </div>
+      
+      <div class="col s12 m8 offset-m2 center-align">
+        <!-- Center-align the text and make it responsive -->
+        <h5>🎁 85% OFF + COLLAB CONTEST </h5>
+        <p><strong>📍 <span id="city">Loading...</span><span id="country"></span> 🧁 18 years old 
+          ♒︎ Aquarius </strong></p>
+        <p><strong>🟢 Online Now</strong></p>
+
+        <p>I'm a future engineer so does that mean I can engineer your cock to cum everytime ? 
+
+          <b> <p>
+            👩💻ENDS  <span id="current-date"></span></p>
+         ONLY PICKING OUT THE WINNER IF THEY FINISH MY TASKS  </b>   </p>
+        <p> If you live in downtown 📍<span id="city2">Loading...</span><span id="country2"></span> DM me about making content ONLY if you complete the tasks in my description  :) 🍑🔥</p>
+        <a class="btn ofbtn" href="https://onlyfans.com/tempestnaomi19/c11">SUBSCRIBE NOW TO MY ONLYFANS❤️</a>
+        <p class="discount">Look at the tasks in my description and complete them if you want a reward ! </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Import Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bdc-bigdatacloud-reverse-geocode@1.1.0/dist/bdc-bigdatacloud-reverse-geocode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      getReverseGeocode(); // Call the getReverseGeocode function to fetch the user's location
+    });
+
+    var result2 = document.getElementById("city");
+    var result3 = document.getElementById("city2");
+
+    function getReverseGeocode() {
+      fetch("https://api.bigdatacloud.net/data/reverse-geocode-client")
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          result2.innerHTML = result.city || "Unknown";
+          result3.innerHTML = result.city || "Unknown";
+          document.getElementById("current-date").innerHTML = getCurrentDate();
+        })
+        .catch(error => {
+          console.log(error);
+          result2.innerHTML = "Failed to retrieve location";
+          result3.innerHTML = "Failed to retrieve location";
+        });
+    }
+
+    function getCurrentDate() {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 2); // Add 2 days to the current date
+  const options = { month: 'long', day: 'numeric' };
+  return currentDate.toLocaleDateString('en-US', options);
+}
+
+  </script>
+</body>
+</html>
